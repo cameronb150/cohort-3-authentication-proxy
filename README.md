@@ -1,1 +1,1 @@
-# cohort-3-authentication-proxy
+# Cohort-3-Pro-To-Type
