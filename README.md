@@ -1,6 +1,6 @@
-# Authentication & Proxy
-## Pro-To-Type Capstone Project
-### Cohort 3
+# AuthenticationApp
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
 
 ## Development server
 
