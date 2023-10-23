@@ -1,12 +1,10 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-# STS
+### STS ###
 .apt_generated
 .classpath
 .factorypath
@@ -15,7 +13,13 @@ target/
 .springBeans
 .sts4-cache
 
-# NetBeans
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -25,6 +29,10 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+### VS Code ###
+.vscode/
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
 # Compiled output
 /dist
 /tmp
@@ -32,15 +40,13 @@ build/
 /bazel-out
 
 # Node
+/node
 /node_modules
 npm-debug.log
 yarn-error.log
 
 # IDEs and editors
 .idea/
-*.iws
-*.iml
-*.ipr
 .project
 .classpath
 .c9/
@@ -50,6 +56,7 @@ yarn-error.log
 
 # Visual Studio Code
 .vscode/*
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
