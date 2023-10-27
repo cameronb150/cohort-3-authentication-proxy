@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UiController {
     @GetMapping("/")
     public String ui() {
-        return "forward:/index.html";
+        return "forward:/login";
     }
     @GetMapping("/profile")
     public String profile() {
