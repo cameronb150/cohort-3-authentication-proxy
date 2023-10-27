@@ -19,6 +19,7 @@ public class SecurityConfig {
     @Autowired
     UserDetailsService userDetailsService;
 
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(16);
@@ -48,7 +49,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
-                        .loginPage("/")
+//                        .loginPage("/")
                         .loginProcessingUrl("/process-login")
                         .defaultSuccessUrl("/profile", true)
                         .failureUrl("/?error=true")

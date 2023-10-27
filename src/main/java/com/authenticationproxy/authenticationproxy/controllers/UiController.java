@@ -13,4 +13,9 @@ public class UiController {
     public String profile() {
         return "forward:/index.html";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
 }
