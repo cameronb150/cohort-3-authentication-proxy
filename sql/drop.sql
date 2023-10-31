@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS user_roles;
+DROP TABLE IF EXISTS users;
+DROP TYPE IF EXISTS role;
+DROP ROLE IF EXISTS capstone_read;
