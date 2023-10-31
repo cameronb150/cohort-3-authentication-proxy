@@ -20,3 +20,9 @@
 
 ## Angular
 - Every time an update is made to the Angular side of the project, you must rebuild the project with "./mvnw generate-resources" and re-run it
+
+## PGAdmin
+- Once the application is run for the first time go into PGAdmin
+- On both the user_roles and users tables right click and select properties
+- Add a privilege for capstone_user with the privileges "r" or "select"
+- Save
