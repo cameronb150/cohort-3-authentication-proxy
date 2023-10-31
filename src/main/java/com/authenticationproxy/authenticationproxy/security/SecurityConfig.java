@@ -33,6 +33,10 @@ public class SecurityConfig {
         return provider;
     }
 
+    public String devGetEncryptedPassword(String password) { // REMOVE THIS FOR PRODUCTION!!! THIS IS TO MANUALLY ADD PASSWORDS TO THE DATABASE FOR TESTING
+        return this.passwordEncoder().encode(password);
+    }
+
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
@@ -44,14 +48,15 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .csrf(cors -> cors.disable())
                 .authorizeHttpRequests((requests) -> requests
+                        // Allow anyone to access the root and index routes, and any routes that start with /static/
                         .requestMatchers("/static/**").permitAll()
                         .requestMatchers("/", "index.html").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
-//                        .loginPage("/")
-                        .loginProcessingUrl("/process-login")
-                        .defaultSuccessUrl("/profile", true)
+//                        .loginPage("/") Depricated and caused a redirect loop, keeping commented out to remind to find an alternative
+//                        .loginProcessingUrl("/process-login") does nothing at the moment, for if you want a seperate page for loading?
+                        .defaultSuccessUrl("/home", true)
                         .failureUrl("/?error=true")
                 )
                 .logout((logout) -> logout

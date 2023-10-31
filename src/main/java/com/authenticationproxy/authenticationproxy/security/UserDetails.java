@@ -30,6 +30,7 @@ public class UserDetails implements org.springframework.security.core.userdetail
         this.authorities = authorities;
     }
 
+    // Returns a compilation of every important data point for the User
     public static UserDetails build(User user) {
         List<GrantedAuthority> authorities = user.getRoles()
                 .stream()
@@ -59,15 +60,15 @@ public class UserDetails implements org.springframework.security.core.userdetail
     @Override
     public boolean isAccountNonExpired() {
         return true;
-    }
+    } // TODO
     @Override
     public boolean isAccountNonLocked() {
         return true;
-    }
+    } // TODO
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
-    }
+    } // TODO
     @Override
     public boolean isEnabled() {
         return this.isEnabled;
