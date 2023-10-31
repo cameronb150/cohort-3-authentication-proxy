@@ -54,8 +54,8 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
-//                        .loginPage("/") Depricated and caused a redirect loop, keeping commented out to remind to find an alternative
-//                        .loginProcessingUrl("/process-login") does nothing at the moment, for if you want a seperate page for loading?
+//                        .loginPage("/login") // Depricated and caused a redirect loop, keeping commented out to remind to find an alternative
+//                        .loginProcessingUrl("/process-login") // does nothing at the moment, for if you want a seperate page for loading?
                         .defaultSuccessUrl("/home", true)
                         .failureUrl("/?error=true")
                 )
