@@ -17,7 +17,7 @@ public class MainController {
 
     @GetMapping("/")
     public String ui() {
-        return "forward:/login";
+        return "redirect:/login";
     }
     @RequestMapping({"/home", "/login"})
     public String angularRouting() {
