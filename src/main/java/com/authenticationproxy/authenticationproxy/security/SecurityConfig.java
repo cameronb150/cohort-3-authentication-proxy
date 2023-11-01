@@ -49,13 +49,13 @@ public class SecurityConfig {
                 .csrf(cors -> cors.disable())
                 .authorizeHttpRequests((requests) -> requests
                         // Allow anyone to access the root and index routes, and any routes that start with /static/
-                        .requestMatchers("/static/**").permitAll()
-                        .requestMatchers("/", "index.html").permitAll()
+                        .requestMatchers("/static/**", "*.css", "*.js", "*.txt").permitAll()
+                        .requestMatchers("/", "/index.html", "/login").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
-//                        .loginPage("/") Depricated and caused a redirect loop, keeping commented out to remind to find an alternative
-//                        .loginProcessingUrl("/process-login") does nothing at the moment, for if you want a seperate page for loading?
+                        .loginPage("/login")
+                        .loginProcessingUrl("/process-login")
                         .defaultSuccessUrl("/home", true)
                         .failureUrl("/?error=true")
                 )
@@ -66,3 +66,6 @@ public class SecurityConfig {
         return http.build();
     }
 }
+
+// loginProcessingUrl is the post url for logging in
+// form encoded data, username, password
