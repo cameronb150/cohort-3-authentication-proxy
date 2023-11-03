@@ -33,7 +33,7 @@ public class SecurityConfig {
         return provider;
     }
 
-    public String devGetEncryptedPassword(String password) { // REMOVE THIS FOR PRODUCTION!!! THIS IS TO MANUALLY ADD PASSWORDS TO THE DATABASE FOR TESTING
+    public String getEncryptedPassword(String password) { // REMOVE THIS FOR PRODUCTION!!! THIS IS TO MANUALLY ADD PASSWORDS TO THE DATABASE FOR TESTING
         return this.passwordEncoder().encode(password);
     }
 
@@ -57,7 +57,7 @@ public class SecurityConfig {
                         .loginPage("/login")
                         .loginProcessingUrl("/process-login")
                         .defaultSuccessUrl("/home", true)
-                        .failureUrl("/?error=true")
+                        .failureUrl("/login?error=true")
                 )
                 .logout((logout) -> logout
                         .logoutUrl("/logout").permitAll()

@@ -1,1 +1,8 @@
-<p>login works!</p>
+<p [ngStyle]="error ? {'display': 'block'} : {'display': 'none'}">Error!</p>
+<form (submit)="onSubmit()"  method="post" [formGroup]="loginForm">
+    <label for="username">Username: </label>
+    <input type="text" id="username" formControlName="username" />
+    <label for="password">Password: </label>
+    <input type="password" id="password" formControlName="password" />
+    <button type="submit">Sign In</button>
+</form>

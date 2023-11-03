@@ -9,11 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.authenticationproxy.authenticationproxy.models.User;
 import com.authenticationproxy.authenticationproxy.repositories.UserRepository;
 
-
+import com.authenticationproxy.authenticationproxy.security.SecurityConfig;
 @Controller
 public class MainController {
     @Autowired
     UserRepository userRepository;
+
+    SecurityConfig securityConfig;
 
     @GetMapping("/")
     public String ui() {
@@ -23,15 +25,11 @@ public class MainController {
     public String angularRouting() {
         return "forward:/index.html";
     }
-//    @GetMapping("/home")
-//    public String profile() {
-//        return "forward:/index.html";
-//    }
 
-//    @GetMapping("/login")
-//    public String login() {
-//        return "login";
-//    }
+    @GetMapping("/encode")
+    public String encode(@RequestBody String password) {
+        return securityConfig.getEncryptedPassword(password);
+    }
 
 
     // TODO
